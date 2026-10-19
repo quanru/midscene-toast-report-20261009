@@ -81,3 +81,7 @@ This is a configured pilot, rather than a self-service installation template. To
 This example establishes one controlled report-loading scenario. It does not establish coverage for arbitrary PRs, multi-tenant isolation, or production readiness. Other repository merge requirements still apply, and the App does not merge PRs.
 
 App comments are published by `midscene-verify-integration[bot]`, not by the repository owner. Reports, screenshots and JSON evidence are publicly readable without a password; the comment itself contains the result and links to the GitHub workflow artifact. Comment publication retries do not rerun browser actions.
+
+## Native Midscene HTML replay
+
+Each verification now exports `<criterion-id>.midscene.html` using the Agent native report API with inline screenshots. Open **Midscene HTML report** in the App comment to inspect actions, model-call details, screenshots and replay. The acceptance summary remains a separate page. Single-criterion Checks open the native report from Details. Native HTML files are public, included in the evidence manifest, and required for acceptance success. The viewer response permits its embedded scripts; summary pages remain script-free.
