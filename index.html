@@ -36,7 +36,7 @@ document.querySelector('#note-form').addEventListener('submit', event => {
   const value = input.value.trim();
   if (!value) { status.textContent = 'Enter a note before saving.'; return; }
   notes.push(value);
-  // Persistence will be added in the follow-up fix.
+  localStorage.setItem(key, JSON.stringify(notes));
   input.value = '';
   status.textContent = 'Note saved.';
   render();
