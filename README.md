@@ -74,10 +74,10 @@ This is a configured pilot, rather than a self-service installation template. To
 - Install the App with read/write access to PRs (for result comments) and Checks, plus read access to deployments and metadata. Existing installations must accept the permission update.
 - Provide a trusted preview build and a revision endpoint generated from the build's actual commit.
 - Configure the installation ID, repository, environment, exact allowed origins, and required criteria in the trusted policy.
-- Set `VERIFY_APP_KEY`, `VERIFY_WEBHOOK_SECRET`, `VERIFY_RELAY_TOKEN`, `VERIFY_REPORT_TOKEN`, `VERIFY_MODEL_API_KEY`, and `VERIFY_MODEL_BASE_URL` as GitHub Actions secrets. Never put their values in commits or reports.
+- Set `VERIFY_APP_KEY`, `VERIFY_WEBHOOK_SECRET`, `VERIFY_RELAY_TOKEN`, `VERIFY_MODEL_API_KEY`, and `VERIFY_MODEL_BASE_URL` as GitHub Actions secrets. Never put their values in commits or reports.
 - Set up the deployed relay and persistent evidence storage referenced by the workflow. This example currently uses the existing pilot service.
 - Review the branch trigger and execution boundary before enabling events for other contributors. The current workflow is restricted to the named, operator-controlled test branch.
 
 This example establishes one controlled report-loading scenario. It does not establish coverage for arbitrary PRs, multi-tenant isolation, or production readiness. Other repository merge requirements still apply, and the App does not merge PRs.
 
-App comments are published by `midscene-verify-integration[bot]`, not by the repository owner. Service report URLs still require the instance report credential; the comment itself contains the result and links to the GitHub workflow artifact. Comment publication retries do not rerun browser actions.
+App comments are published by `midscene-verify-integration[bot]`, not by the repository owner. Reports, screenshots and JSON evidence are publicly readable without a password; the comment itself contains the result and links to the GitHub workflow artifact. Comment publication retries do not rerun browser actions.
