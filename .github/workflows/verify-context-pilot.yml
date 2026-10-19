@@ -44,6 +44,8 @@ jobs:
           VERIFY_RELAY_TOKEN: ${{ secrets.VERIFY_RELAY_TOKEN }}
           MIDSCENE_MODEL_API_KEY: ${{ secrets.VERIFY_MODEL_API_KEY }}
           MIDSCENE_MODEL_BASE_URL: ${{ secrets.VERIFY_MODEL_BASE_URL }}
+          VERIFY_PLANNER_MODEL: qwen3.8-max-0902
+          VERIFY_PLANNER_ENABLE_THINKING: "false"
           MIDSCENE_MODEL_NAME: qwen3-vl-plus
           MIDSCENE_MODEL_FAMILY: qwen3-vl
           MIDSCENE_MODEL_RETRY_COUNT: '0'
