@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0",
+  "verificationId": "fe33ba360890780f1f689922fd350b8997f66d0c0fda10d580569c7641228baf",
+  "subject": {
+    "repository": "quanru/midscene-toast-report-20261009",
+    "pullRequest": 1,
+    "headSha": "9863c8d85147971c4299ecb9d4f8f592ee1e4610",
+    "deploymentId": 7169774517,
+    "deploymentSha": "9863c8d85147971c4299ecb9d4f8f592ee1e4610",
+    "previewUrl": "https://midscene-verify-live.quanru.workers.dev/preview/index.html"
+  },
+  "policyDigest": "sha256:5c18a12ce40e17c8d5eaece21475c526c07bf0b550b8e6e8b259dfbb398b3756",
+  "generatedAt": "2026-10-19T09:04:18.818Z",
+  "execution": {
+    "status": "completed",
+    "attemptCount": 1,
+    "observedRevisionBefore": "9863c8d85147971c4299ecb9d4f8f592ee1e4610",
+    "observedRevisionAfter": "9863c8d85147971c4299ecb9d4f8f592ee1e4610",
+    "model": "qwen3-vl-plus"
+  },
+  "functionalGate": {
+    "status": "not-satisfied",
+    "blockingReasons": [
+      {
+        "code": "CRITERION_FAILED",
+        "criterionId": "REPORT-LOAD"
+      }
+    ]
+  },
+  "coverage": {
+    "required": 1,
+    "passed": 0,
+    "failed": 1,
+    "notRun": 0
+  },
+  "criteria": [
+    {
+      "id": "REPORT-LOAD",
+      "title": "The full interactive execution report loads",
+      "status": "failed",
+      "method": "visual-model-assertion",
+      "steps": [
+        {
+          "type": "aiAct",
+          "status": "failed"
+        }
+      ],
+      "evidence": [
+        "REPORT-LOAD.png",
+        "REPORT-LOAD.trace.json"
+      ],
+      "errorCode": "STEP_EXECUTION_FAILED"
+    }
+  ],
+  "limitations": [
+    "Only the configured Web criteria and browser viewport were tested.",
+    "Visual assertions are model judgments; inspect linked screenshots and traces.",
+    "Revision identity relies on trusted deployment metadata and the application revision endpoint.",
+    "Functional verification does not replace other repository merge requirements."
+  ],
+  "provenance": {
+    "kind": "github-app-runner",
+    "installationId": 172602010
+  },
+  "artifacts": [
+    {
+      "path": "REPORT-LOAD.png",
+      "digest": "sha256:13664157d9b8185e4fc778e89ac002298036516c532a3e72883b834a9257a3cb",
+      "bytes": 15367
+    },
+    {
+      "path": "REPORT-LOAD.trace.json",
+      "digest": "sha256:71cd2746e0181ee108e5285437b3570ef6be29d47bd91a775c379b64a8c3c37a",
+      "bytes": 301555
+    }
+  ]
+}

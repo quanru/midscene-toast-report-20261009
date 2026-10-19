@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "verificationId": "14ae809d60a96bac1f6a5082a1665542bcde5b08011beb66308766757d8b0b0b",
+  "subject": {
+    "repository": "quanru/midscene-toast-report-20261009",
+    "pullRequest": 1,
+    "headSha": "0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+    "deploymentId": 7169816650,
+    "deploymentSha": "0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+    "previewUrl": "https://midscene-verify-live.quanru.workers.dev/preview/index.html"
+  },
+  "policyDigest": "sha256:5c18a12ce40e17c8d5eaece21475c526c07bf0b550b8e6e8b259dfbb398b3756",
+  "generatedAt": "2026-10-19T09:06:32.726Z",
+  "execution": {
+    "status": "completed",
+    "attemptCount": 1,
+    "observedRevisionBefore": "0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+    "observedRevisionAfter": "0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+    "model": "qwen3-vl-plus"
+  },
+  "functionalGate": {
+    "status": "satisfied",
+    "blockingReasons": []
+  },
+  "coverage": {
+    "required": 1,
+    "passed": 1,
+    "failed": 0,
+    "notRun": 0
+  },
+  "criteria": [
+    {
+      "id": "REPORT-LOAD",
+      "title": "The full interactive execution report loads",
+      "status": "passed",
+      "method": "visual-model-assertion",
+      "steps": [
+        {
+          "type": "aiAct",
+          "status": "passed"
+        },
+        {
+          "type": "aiAssert",
+          "status": "passed"
+        }
+      ],
+      "evidence": [
+        "REPORT-LOAD.png",
+        "REPORT-LOAD.trace.json"
+      ]
+    }
+  ],
+  "limitations": [
+    "Only the configured Web criteria and browser viewport were tested.",
+    "Visual assertions are model judgments; inspect linked screenshots and traces.",
+    "Revision identity relies on trusted deployment metadata and the application revision endpoint.",
+    "Functional verification does not replace other repository merge requirements."
+  ],
+  "provenance": {
+    "kind": "github-app-runner",
+    "installationId": 172602010
+  },
+  "artifacts": [
+    {
+      "path": "REPORT-LOAD.png",
+      "digest": "sha256:33d317219bc6776bf1bb5436dfd28388fc71833450cb0214a32e6deccdbb4764",
+      "bytes": 79514
+    },
+    {
+      "path": "REPORT-LOAD.trace.json",
+      "digest": "sha256:7ecf45338860898fa2a1673c33d5013a0b35e2a5cb36224f487453e7633e8fd4",
+      "bytes": 1558210
+    }
+  ]
+}

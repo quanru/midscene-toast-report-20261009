@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "1.0",
+  "scope": "public-repository-github-app-acceptance",
+  "repository": "quanru/midscene-toast-report-20261009",
+  "prUrl": "https://github.com/quanru/midscene-toast-report-20261009/pull/1",
+  "prMerged": false,
+  "mainUnchanged": true,
+  "mainSha": "403ecee0a0d3c37160cc16e612c2f1cc9732c716",
+  "currentHead": "0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+  "appId": 5365383,
+  "runnerEnvironment": "github-actions",
+  "engineReleaseCommit": "98dbf45931c6449802b2115a11c32be605f888fb",
+  "policyDigest": "sha256:5c18a12ce40e17c8d5eaece21475c526c07bf0b550b8e6e8b259dfbb398b3756",
+  "results": [
+    {
+      "mode": "broken",
+      "sha": "9863c8d85147971c4299ecb9d4f8f592ee1e4610",
+      "checkId": 117976298484,
+      "checkUrl": "https://github.com/quanru/midscene-toast-report-20261009/runs/117976298484",
+      "conclusion": "failure",
+      "workflowRunId": 39227176053,
+      "workflowUrl": "https://github.com/quanru/midscene-toast-report-20261009/actions/runs/39227176053",
+      "preview": {
+        "repository": "quanru/midscene-toast-report-20261009",
+        "sha": "9863c8d85147971c4299ecb9d4f8f592ee1e4610",
+        "deploymentId": 7169774517,
+        "runnerEnvironment": "github-actions",
+        "workflowRun": "https://github.com/quanru/midscene-toast-report-20261009/actions/runs/39227176053",
+        "sourceDigest": "09e6517b28542e3df46bf7d120676438e529ac438b4620dcf5fb4e13204b6cdd",
+        "previewDigest": "41b986bc81ef0c695a103ef31f22e177273df56d982ce7c69df646fcd31adadb"
+      },
+      "inspection": {
+        "verificationId": "fe33ba360890780f1f689922fd350b8997f66d0c0fda10d580569c7641228baf",
+        "headSha": "9863c8d85147971c4299ecb9d4f8f592ee1e4610",
+        "functionalGate": {
+          "status": "not-satisfied",
+          "blockingReasons": [
+            {
+              "code": "CRITERION_FAILED",
+              "criterionId": "REPORT-LOAD"
+            }
+          ]
+        },
+        "coverage": {
+          "required": 1,
+          "passed": 0,
+          "failed": 1,
+          "notRun": 0
+        },
+        "limitations": [
+          "Only the configured Web criteria and browser viewport were tested.",
+          "Visual assertions are model judgments; inspect linked screenshots and traces.",
+          "Revision identity relies on trusted deployment metadata and the application revision endpoint.",
+          "Functional verification does not replace other repository merge requirements."
+        ]
+      },
+      "artifact": [
+        {
+          "id": 12174418197,
+          "name": "verify-app-9863c8d85147971c4299ecb9d4f8f592ee1e4610",
+          "digest": "sha256:27eea6299d4dff9fb64b0e08c31cb827e5449d2aaf44e42a8aefad53bbb0654b"
+        }
+      ]
+    },
+    {
+      "mode": "fixed",
+      "sha": "0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+      "checkId": 117976942222,
+      "checkUrl": "https://github.com/quanru/midscene-toast-report-20261009/runs/117976942222",
+      "conclusion": "success",
+      "workflowRunId": 39227392546,
+      "workflowUrl": "https://github.com/quanru/midscene-toast-report-20261009/actions/runs/39227392546",
+      "preview": {
+        "repository": "quanru/midscene-toast-report-20261009",
+        "sha": "0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+        "deploymentId": 7169816650,
+        "runnerEnvironment": "github-actions",
+        "workflowRun": "https://github.com/quanru/midscene-toast-report-20261009/actions/runs/39227392546",
+        "sourceDigest": "392c49ac50731a63347adcc621142148a7ecf7aca518bfba1ec5821abebd0c60",
+        "previewDigest": "df661b8389749f592354f500fcab92caabea231235cea55813c6c9e8f8ba839c"
+      },
+      "inspection": {
+        "verificationId": "14ae809d60a96bac1f6a5082a1665542bcde5b08011beb66308766757d8b0b0b",
+        "headSha": "0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+        "functionalGate": {
+          "status": "satisfied",
+          "blockingReasons": []
+        },
+        "coverage": {
+          "required": 1,
+          "passed": 1,
+          "failed": 0,
+          "notRun": 0
+        },
+        "limitations": [
+          "Only the configured Web criteria and browser viewport were tested.",
+          "Visual assertions are model judgments; inspect linked screenshots and traces.",
+          "Revision identity relies on trusted deployment metadata and the application revision endpoint.",
+          "Functional verification does not replace other repository merge requirements."
+        ]
+      },
+      "artifact": [
+        {
+          "id": 12174273589,
+          "name": "verify-app-0de44fa90a84c5a925612d3143b2d113bd2db3fa",
+          "digest": "sha256:285817e8c4aaa1ea5394f04f1d3ecd8c50dddb6d9ff84a5b88d4ff991dad29e5"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Single controlled report-loading scenario, not arbitrary PR verification.",
+    "Pilot workflow and trusted engine snapshot exist only on the unmerged test branch.",
+    "Initial assertion-only policy was too early for asynchronous loading; the final policy adds a real theme-toggle action before asserting.",
+    "Organization installation in web-infra-dev remains pending."
+  ],
+  "verifiedAt": "2026-10-19T09:08:32.285Z"
+}

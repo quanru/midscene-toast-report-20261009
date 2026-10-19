@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "verificationId": "14ae809d60a96bac1f6a5082a1665542bcde5b08011beb66308766757d8b0b0b",
+  "files": [
+    {
+      "path": "REPORT-LOAD.png",
+      "digest": "sha256:33d317219bc6776bf1bb5436dfd28388fc71833450cb0214a32e6deccdbb4764",
+      "bytes": 79514
+    },
+    {
+      "path": "REPORT-LOAD.trace.json",
+      "digest": "sha256:7ecf45338860898fa2a1673c33d5013a0b35e2a5cb36224f487453e7633e8fd4",
+      "bytes": 1558210
+    },
+    {
+      "path": "acceptance.json",
+      "digest": "sha256:0ec48cbf0b9bd7019391500354512611b9ec5150c889addbf9d992daa7e4ec30",
+      "bytes": 1040
+    },
+    {
+      "path": "verdict.json",
+      "digest": "sha256:bbf67c12d45917815fc85397910cc7a24adddcbd9d309ea544fe8745bfb71620",
+      "bytes": 2279
+    },
+    {
+      "path": "summary.md",
+      "digest": "sha256:342528f9ed2e1df624c59eedd6ea16fd2dd9531b9053ea78084dceb27e59f73c",
+      "bytes": 833
+    },
+    {
+      "path": "report.html",
+      "digest": "sha256:f7509af49c92bcee83a5c35289085806cd2d9b142c7d539ab34453fae20bafde",
+      "bytes": 1486
+    }
+  ]
+}
