@@ -1,0 +1,28 @@
+{
+  "repositories": [
+    {
+      "repository": "quanru/midscene-toast-report-20261009",
+      "installationId": 172602010,
+      "environment": "Verify Preview",
+      "allowedOrigins": [
+        "https://midscene-verify-live.quanru.workers.dev",
+        "https://raw.githubusercontent.com"
+      ],
+      "revisionPath": "/preview/__revision.json",
+      "timeoutMs": 600000,
+      "criteria": [],
+      "planning": {
+        "mode": "context",
+        "paths": [
+          "/preview/index.html"
+        ],
+        "maxCriteria": 2,
+        "excludePrefixes": [
+          ".verify-app-engine/",
+          ".github/",
+          "README.md"
+        ]
+      }
+    }
+  ]
+}
