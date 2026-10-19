@@ -1,0 +1,32 @@
+{
+  "repositories": [
+    {
+      "repository": "quanru/midscene-toast-report-20261009",
+      "installationId": 172602010,
+      "environment": "Verify Preview",
+      "allowedOrigins": [
+        "https://midscene-verify-live.quanru.workers.dev",
+        "https://raw.githubusercontent.com"
+      ],
+      "revisionPath": "/preview/__revision.json",
+      "timeoutMs": 180000,
+      "criteria": [
+        {
+          "id": "REPORT-LOAD",
+          "title": "The full interactive execution report loads",
+          "path": "/preview/index.html",
+          "steps": [
+            {
+              "type": "aiAct",
+              "prompt": "Wait for the report to finish loading, then click the Toggle theme button in the top right corner of the full report. If a loading placeholder is visible, wait and observe again before clicking."
+            },
+            {
+              "type": "aiAssert",
+              "prompt": "The full Midscene interactive report is visible: it has an Execution panel with recorded Tap, Boolean and Assert entries and a Record replay area. It is not a loading placeholder or a load failure page."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

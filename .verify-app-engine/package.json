@@ -1,0 +1,17 @@
+{
+  "name": "midscene-verify-hosted",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/main.mjs",
+    "test": "node --test --test-concurrency=1 tests/*.test.mjs",
+    "build": "node scripts/check.mjs",
+    "test:browser": "node scripts/browser-smoke.mjs"
+  },
+  "dependencies": {
+    "@midscene/web": "1.15.5",
+    "puppeteer": "24.6.0"
+  },
+  "packageManager": "pnpm@9.3.0"
+}
