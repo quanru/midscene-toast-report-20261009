@@ -1,0 +1,59 @@
+name: Verify App context-driven PR pilot
+on:
+  push:
+    branches: ['test/context-driven-notes']
+permissions:
+  contents: read
+  deployments: write
+concurrency:
+  group: verify-public-pilot
+  cancel-in-progress: false
+jobs:
+  acceptance:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.3.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: pnpm install --frozen-lockfile
+        working-directory: .verify-app-engine
+      - name: Publish isolated preview from this commit
+        run: node .verify-app-engine/cloud-preview.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          VERIFY_RELAY_TOKEN: ${{ secrets.VERIFY_RELAY_TOKEN }}
+      - uses: ./.github/actions/ai-ci
+        with:
+          command: node scripts/hosted-run.mjs
+          shell: bash
+          working-directory: .verify-app-engine
+        env:
+          VERIFY_CONFIG: policy.json
+          VERIFY_DATA_DIR: ${{ runner.temp }}/verify-evidence
+          VERIFY_PUBLIC_URL: https://midscene-verify-live.quanru.workers.dev
+          GITHUB_APP_ID: '5365383'
+          GITHUB_APP_PRIVATE_KEY: ${{ secrets.VERIFY_APP_KEY }}
+          GITHUB_WEBHOOK_SECRET: ${{ secrets.VERIFY_WEBHOOK_SECRET }}
+          VERIFY_RELAY_TOKEN: ${{ secrets.VERIFY_RELAY_TOKEN }}
+          MIDSCENE_MODEL_API_KEY: ${{ secrets.VERIFY_MODEL_API_KEY }}
+          MIDSCENE_MODEL_BASE_URL: ${{ secrets.VERIFY_MODEL_BASE_URL }}
+          VERIFY_PLANNER_MODEL: qwen3.8-max-0902
+          VERIFY_PLANNER_ENABLE_THINKING: "false"
+          MIDSCENE_MODEL_NAME: qwen3-vl-plus
+          MIDSCENE_MODEL_FAMILY: qwen3-vl
+          MIDSCENE_MODEL_RETRY_COUNT: '0'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verify-app-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/verify-evidence/evidence
+            .verify-app-engine/preview-receipt.json
+          retention-days: 14
