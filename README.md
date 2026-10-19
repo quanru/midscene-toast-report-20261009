@@ -27,7 +27,7 @@ The report links above are public and require no Midscene service token. GitHub 
 4. It publishes a GitHub Deployment in the `Verify Preview` environment and a revision endpoint containing the checked-out commit SHA.
 5. The deployed App receives signed GitHub events. The runner consumes them, reads the current PR and deployment, and checks revision identity before and after browser execution.
 6. A real `qwen3-vl-plus` model waits for the full report, clicks its theme toggle using `aiAct`, and uses `aiAssert` to confirm that the Execution panel, recorded entries, and Record replay area are visible.
-7. The runner publishes evidence before the App completes **Midscene / Functional Verification** on the exact PR commit.
+7. The runner publishes evidence before the App completes **Midscene / Functional Verification** on the exact PR commit. The App then adds a PR conversation comment with the commit, result, criterion table, report links, workflow artifact entry, and an Agent-readable JSON summary. Duplicate deliveries reuse the existing comment for that verification.
 
 Workflow success means the harness executed successfully. The separate App Check carries the functional result: a deliberately broken page can produce a successful workflow and a failed acceptance Check.
 
@@ -46,7 +46,7 @@ The first assertion-only attempt reached the asynchronous loading placeholder to
 | `.verify-app-engine/src/` | Published standalone engine snapshot |
 | `.verify-app-engine/scripts/hosted-run.mjs` | Consumes App deliveries and publishes evidence and Checks |
 
-The engine snapshot comes from published standalone commit `98dbf45931c6449802b2115a11c32be605f888fb`. This example does not require merging the engine's upstream PR.
+The engine snapshot starts from published standalone commit `98dbf45931c6449802b2115a11c32be605f888fb`, with the App-comment publishing update from Midscene PR #3273. This example does not require merging the engine's upstream PR.
 
 ## Agent verification
 
@@ -71,7 +71,7 @@ Exit codes are `0` for satisfied, `1` for not satisfied, and `2` for invalid evi
 
 This is a configured pilot, rather than a self-service installation template. To adapt it to another repository:
 
-- Install the App with read access to PRs, deployments, and metadata, plus write access to Checks.
+- Install the App with read/write access to PRs (for result comments) and Checks, plus read access to deployments and metadata. Existing installations must accept the permission update.
 - Provide a trusted preview build and a revision endpoint generated from the build's actual commit.
 - Configure the installation ID, repository, environment, exact allowed origins, and required criteria in the trusted policy.
 - Set `VERIFY_APP_KEY`, `VERIFY_WEBHOOK_SECRET`, `VERIFY_RELAY_TOKEN`, `VERIFY_REPORT_TOKEN`, `VERIFY_MODEL_API_KEY`, and `VERIFY_MODEL_BASE_URL` as GitHub Actions secrets. Never put their values in commits or reports.
@@ -79,3 +79,5 @@ This is a configured pilot, rather than a self-service installation template. To
 - Review the branch trigger and execution boundary before enabling events for other contributors. The current workflow is restricted to the named, operator-controlled test branch.
 
 This example establishes one controlled report-loading scenario. It does not establish coverage for arbitrary PRs, multi-tenant isolation, or production readiness. Other repository merge requirements still apply, and the App does not merge PRs.
+
+App comments are published by `midscene-verify-integration[bot]`, not by the repository owner. Service report URLs still require the instance report credential; the comment itself contains the result and links to the GitHub workflow artifact. Comment publication retries do not rerun browser actions.
