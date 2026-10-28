@@ -36,7 +36,7 @@ document.querySelector('#note-form').addEventListener('submit', event => {
   const value = input.value.trim();
   if (!value) { status.textContent = 'Enter a note before saving.'; return; }
   notes.push(value);
-  // Deliberate persistence regression for acceptance verification.
+  localStorage.setItem(key, JSON.stringify(notes));
   input.value = '';
   status.textContent = 'Note saved.';
   render();
