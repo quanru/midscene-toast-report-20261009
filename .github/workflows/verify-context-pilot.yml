@@ -5,6 +5,7 @@ on:
 permissions:
   contents: read
   deployments: write
+  pull-requests: read
 concurrency:
   group: verify-public-pilot
   cancel-in-progress: false
@@ -29,6 +30,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           VERIFY_RELAY_TOKEN: ${{ secrets.VERIFY_RELAY_TOKEN }}
+      - name: Register preview with the public Midscene Action
+        uses: web-infra-dev/midscene/.github/actions/verify-preview@c2b2324d4423f35f878c6a551e7de96fcf6100b9
+        with:
+          pull-request: '3'
+          head-sha: ${{ github.sha }}
+          preview-url: https://midscene-verify-live.quanru.workers.dev/preview/index.html
+          environment: Verify Preview
       - uses: ./.github/actions/ai-ci
         with:
           command: node scripts/hosted-run.mjs

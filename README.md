@@ -9,3 +9,8 @@ This branch is operator-controlled pilot infrastructure, not a general untrusted
 ## Evidence
 
 Read the App comment for exact commit, plan, context manifest, functional result, and native HTML reports. The first revision intentionally omits persistence so automatic verification should detect the mismatch against the linked issue. A follow-up revision will restore persistence and be verified independently.
+
+
+## Preview registration pilot
+
+The branch-scoped workflow publishes the existing isolated preview, then calls the public Midscene preview-registration Action pinned to `c2b2324d4423f35f878c6a551e7de96fcf6100b9`. It supplies PR 3, the actual deployed head SHA, preview URL and environment. A hosted runner uses the GitHub App identity to consume the signed deployment event and publish verification evidence. The workflow remains operator-controlled integration infrastructure, not a template for executing arbitrary PR code with App secrets. No PR merge or production-site change is required.
